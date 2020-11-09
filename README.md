@@ -1,3 +1,3 @@
-# 2021-ca273-master-a3
+### Repository for CA273 Assignment 3: Data Processing & Cleaning
 
-Information for CA273 assignment 3 (a3) on data processing and cleaning.
+Read the instructions in [ASSIGNMENT3.md](ASSIGNMENT3.md). 
