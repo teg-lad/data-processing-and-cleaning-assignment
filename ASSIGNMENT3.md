@@ -8,7 +8,7 @@
 
 ## 1. Fork this git repository
 
-This repository should be forked to your own userspace and renamed to 2021-ca273-username-a1 where username is your computing account login (eg, 2021-ca273-slittle-a1).     
+This repository should be forked to your own userspace and renamed to 2021-ca273-username-a3 where username is your computing account login (eg, 2021-ca273-slittle-a3).     
 
 Repository structure: [partially based on cookiecutter data science](http://drivendata.github.io/cookiecutter-data-science/)
 
