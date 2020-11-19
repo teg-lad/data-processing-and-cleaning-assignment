@@ -11,14 +11,14 @@ pandas from recognizing that this column has the same data as other columns with
 
 To fix this, I will use pandas to rename the columns with the following code.
 
-![Spelling error in column](notebooks/images/1.png)
+![Spelling error in column](images/1.PNG)
 
 ## 2. Removing duplicate Jun in 2020 jul-dec
 
 It could be seen in the 2020 jul-dec csv file that the month of June was included when it does not fall within
 July - December. This resulted in duplication as this data was identical to the June data in the 2020 jan-jun file.
 
-![Duplicated June in 2020](notebooks/images/2.png)
+![Duplicated June in 2020](images/2.PNG)
 
 As this was only one deletion I manually opened the csv file in notepad and deleted the chunk of data from June.
 
@@ -28,9 +28,9 @@ Through the years, the names of columns changed. Examples of this include Date a
 in 2019. O'Connell St in 2020 had no ' in the name, and in 2019 it did. In 2019 columns like Grafton St @ CompuB
 had the at abbreviated to @, so this had to be altered too.
 
-![Spelling error in column](notebooks/images/3a.png)
+![Spelling error in column](images/3a.PNG)
 
-![Spelling error in column](notebooks/images/3b.png)
+![Spelling error in column](images/3b.PNG)
 
 To correct this I renamed the columns in pandas (first image) and when I was processing the 2008 file with a python script I output
 the correct column names (second image).
@@ -41,14 +41,14 @@ In the 2019 dataset the dates and time too were formatted differently to every o
 taken every 15 mins, the solution to this was seen in my processing notebook. The dates themselves had a - instead
 of a / to separate the day, month and year. In addition to this, the first half had a mm/dd/yyyy format and the second half had a dd/mm/yyyy format. I decided to normalize it with the rest of the data and choose a dd/mm/yyyy format overall. This date issue can be seen below.
 
-![mm/dd/yyyy format](notebooks/images/4a.png)
+![mm/dd/yyyy format](images/4a.PNG)
 
-![dd/mm/yyyy format](notebooks/images/4b.png)
+![dd/mm/yyyy format](images/4b.PNG)
 
 I used my processing python script to correct this also. If I specified the dates were to be switched it would use
 the code below to fix it. it would also replace any -'s with /'s.
 
-![Date formatting code](notebooks/images/4c.png)
+![Date formatting code](images/4c.PNG)
 
 ## 5. Coping with missing values
 
@@ -57,7 +57,7 @@ In the 2019 jan-jun dataset it can be seen that on 6/30/2019 (wrong date format 
 up what is there. So the slot from 4-5am only has 45 mins worth of data, and the same is true for the 9am to 10am
 slot. Below to the left is the pre-processed data in question and on the right the processed.
 
-![Date formatting code](notebooks/images/5a.png) ![Date formatting code](notebooks/images/5b.png)
+![Date formatting code](images/5a.PNG) ![Date formatting code](images/5b.PNG)
 
 A solution to this that is past cleaning that I will not do in this project would be to analyse the typical patterns
 of people on whatever day of the week this date corresponds to and estimate the amount of people there should be.
@@ -67,7 +67,7 @@ My program simply does what it can with the data given and so used the partial d
 data should've been. I had to alter it so that even if 1, 2 or 3 values are given, it only does whatever is in 1
 hour. ie, 4, 4:15, 4:30, and if there is no 4:45 it will just use those 3 to find 4:00.
 
-![Date formatting code](notebooks/images/5c.png)
+![Date formatting code](images/5c.PNG)
 
 ## 6. Redefining old data
 
@@ -83,9 +83,9 @@ I averaged the people in pandas for 2010 and with my python script for 2008, bot
 script the first point shows if it is a Grafton St location just add the value. By the end of the script all
 3 locational values will have been summed, then I can just average it at the second point before printing.
 
-![Redefining old data using pandas](notebooks/images/6a.png)
+![Redefining old data using pandas](images/6a.PNG)
 
-![Redefining old data using python](notebooks/images/6b.png)
+![Redefining old data using python](images/6b.PNG)
 
 ## 7. Ignoring redundant data
 
@@ -94,26 +94,26 @@ One issue with receiving many different files is that some may contain data whic
 name and so on. In addition, there was also a column for pedestrians leaving the area being monitored.
 This data too was redundant.
 
-![Redundant data in 2008 ods](notebooks/images/7a.png)
+![Redundant data in 2008 ods](images/7a.PNG)
 
 To correct this, my program only looked for lines that contained a time, or lines with an entrance name
 as that is the location the following data corresponds to.
 
-![Ignoring redundant data](notebooks/images/7b.png)
+![Ignoring redundant data](images/7b.PNG)
 
 ## 8. Removing blank rows from the data
 
 The script used to ignore redundant data also removed blank rows as it ignored any rows in the 2008
 files that did not contain data which I specified to take.
 
-![Blank lines in 2008 ods](notebooks/images/8.png)
+![Blank lines in 2008 ods](images/8.PNG)
 
 ## 9. Replacing null values
 
 Null values can be a pain when using a dataset for any form of analysis or datamining even. So I decided
 to default null values to 0 in my output csv file.
 
-![Setting all nulls to 0](notebooks/images/9.png)
+![Setting all nulls to 0](images/9.PNG)
 
 ## 10. Correcting non-numeric values
 
@@ -122,7 +122,7 @@ types in any of the columns. Converting all the columns to numeric and using a n
 that in row 12,602 of the processed file there was a O instead of a 0. This cannot be transformed into
 a number and so must be changed.
 
-![Non-numeric found in openrefine](notebooks/images/10.png)
+![Non-numeric found in openrefine](images/10.PNG)
 
 ## 11. Extraneous whitespace in rows
 
@@ -131,4 +131,4 @@ meant that the value in this row would not default to NaN or 0 as there was an e
 blank entry that we as humans cannot see at first glance. I manually changed these as there was only
 2 rows that this applied to. 27,342 and 32,851 were the row numbers.
 
-!["Blank rows" as a result of whitespace](notebooks/images/11.png)
+!["Blank rows" as a result of whitespace](images/11.PNG)
