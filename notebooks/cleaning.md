@@ -1,6 +1,6 @@
 # CA273 - Data Processing and Cleaning Assignment - Adam Tegart
 
-The following is the errors and artefacts I encountered among the datasets I had to join and how I rectified the errors.
+The following is the errors and artefacts I encountered among the datasets I had to join and how I rectified the errors. There are also several entries that may not be classed as errors or artefacts, but I felt made the data easier to use and understand and overall cleaner.
 I work through these errors as they appear in the datasets from newest to oldest, so at the time of finishing processing
 I had corrected most of these.
 
@@ -26,7 +26,7 @@ As this was only one deletion I manually opened the csv file in notepad and dele
 
 Through the years, the names of columns changed. Examples of this include Date and Time in 2020 becoming just Time
 in 2019. O'Connell St in 2020 had no ' in the name, and in 2019 it did. In 2019 columns like Grafton St @ CompuB
-had the at abbreviated to @, so this had to be altered too.
+had the "at" abbreviated to @, so this had to be altered too.
 
 ![Spelling error in column](images/3a.PNG)
 
@@ -49,6 +49,8 @@ I used my processing python script to correct this also. If I specified the date
 the code below to fix it. it would also replace any -'s with /'s.
 
 ![Date formatting code](images/4c.PNG)
+![Date formatting code](images/4d.PNG)
+
 
 ## 5. Coping with missing values
 
@@ -119,7 +121,7 @@ to default null values to 0 in my output csv file.
 
 After exporting my csv file from my notebook I decided to check that there were no duplicates or invalid
 types in any of the columns. Converting all the columns to numeric and using a numeric facet I found
-that in row 12,602 of the processed file there was a O instead of a 0. This cannot be transformed into
+that in row 12,602 of the processed file there was an O instead of a 0. This cannot be transformed into
 a number and so must be changed.
 
 ![Non-numeric found in openrefine](images/10.PNG)
@@ -131,4 +133,20 @@ meant that the value in this row would not default to NaN or 0 as there was an e
 blank entry that we as humans cannot see at first glance. I manually changed these as there was only
 2 rows that this applied to. 27,342 and 32,851 were the row numbers.
 
+My assumption is that row 27,342 had values that were lost for whatever reason during collection, ie. connection dropped during data transfer, sensor malfunction. 32,851 was one of these rows as the hourly sensor data had yet to be inputted as it is the last row in the dataset.
+
 !["Blank rows" as a result of whitespace](images/11.PNG)
+
+## 12.  Possible entry error?
+
+Upon finalizing my cleaning.md and wrapping up my project I stumbled upon something strange. There were reportedly 340,000 on Grafton St at 5pm on 13/12/08. This seems like an absurdly high number. After a bit of research I discovered that this was around the time that the christmas lights were put on Grafton St. In addition to this, it was the first year that they went to all this effort to have the lights put up.
+
+For this reason, and because from what I know, there is no human input involved in the data, I believe this was a genuine entry.
+
+I used excel to find the entry in question after seeing it in my df.describe()
+
+![df.describe()](images/12a.PNG)
+
+![Excel function](images/12b.PNG)
+
+![Very large value](images/12c.PNG)
