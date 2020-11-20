@@ -137,16 +137,18 @@ My assumption is that row 27,342 had values that were lost for whatever reason d
 
 !["Blank rows" as a result of whitespace](images/11.PNG)
 
-## 12.  Possible entry error?
+## 12. Value entry error
 
-Upon finalizing my cleaning.md and wrapping up my project I stumbled upon something strange. There were reportedly 340,000 on Grafton St at 5pm on 13/12/08. This seems like an absurdly high number. After a bit of research I discovered that this was around the time that the christmas lights were put on Grafton St. In addition to this, it was the first year that they went to all this effort to have the lights put up.
+Upon finalizing my cleaning.md and wrapping up my project I stumbled upon something strange. There were reportedly 340,000 on Grafton St at 5pm on 13/12/10. This seems like an absurdly high number. At first I thought to research it and see if there was a reason. I was lead to believe that this value might be accurate as this seemed like around the time christmas lights would've been turned on. Looking at the 2010 data itself before I average the Grafton St value revealed something to me.
 
-For this reason, and because from what I know, there is no human input involved in the data, I believe this was a genuine entry.
+It turns out that the value was indeed a mistake and a value of 999,999 was entered into the Grafton St at Korkys column. This was most definitely invalid data as this is a very specific number and does not seem likely that only 6-7k people were on the lower part of Grafton St but there was 1 million on the upper end. I decided to change this value manually, and I picked a number inbetween the hour before (6.8k) and the hour after (2.8k), so I went with 5k.
 
-I used excel to find the entry in question after seeing it in my df.describe()
+The high value in the describe can be seen below, along with the excel function I used to find the value and the value in excel. There is also a picture of the value itself in the 2010 dataset before being averaged.
 
 ![df.describe()](images/12a.PNG)
 
 ![Excel function](images/12b.PNG)
 
 ![Very large value](images/12c.PNG)
+
+![Data point in 2010](images/12d.PNG)
